@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Alex.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://wood_color_01_diff.jpg" type="Texture" id=2]
+[ext_resource path="res://Stone 5184 x 3486 px 200215.jpg" type="Texture" id=3]
+[ext_resource path="res://KinematicBody.gd" type="Script" id=4]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 2 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="KinematicBody" type="KinematicBody" parent="."]
+script = ExtResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="KinematicBody"]
+
+[node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
+
+[node name="Cubo1" type="MeshInstance" parent="KinematicBody/CollisionShape"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.21673, 0 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../../..")
+material/0 = SubResource( 1 )
+
+[node name="Cubo2" type="MeshInstance" parent="KinematicBody/CollisionShape"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.21673, 2 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../../..")
+material/0 = SubResource( 1 )
+
+[node name="Cubo4" type="MeshInstance" parent="KinematicBody/CollisionShape"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.21673, 0 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../../..")
+material/0 = SubResource( 1 )
+
+[node name="Cubo5" type="MeshInstance" parent="KinematicBody/CollisionShape"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.21673, 0 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../../..")
+material/0 = SubResource( 1 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.932065, 0, -0.362292, 0, 1, 0, 0.362292, 0, 0.932065, -5.91042, 5.06716, 16.622 )
+
+[node name="Base" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.53674e-07, 0, 0 )
+use_collision = true
+width = 15.0
+height = 1.0
+depth = 15.0
+material = SubResource( 2 )
